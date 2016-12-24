@@ -13,7 +13,7 @@ export class HomePage {
   }
 
   ngOnInit(){
-  	this.getPosts('programming', 10)
+  	this.getPosts('gaming', 10)
   }
 
   getPosts(category, limit){
