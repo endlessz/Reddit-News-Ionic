@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RedditService } from '../../app/services/reddit.service';
 import { NavController } from 'ionic-angular';
+import { PostPage } from '../post/post';
 
 @Component({
   selector: 'page-home',
@@ -20,5 +21,13 @@ export class HomePage {
   	this.redditService.getPosts(category, limit).subscribe(response => {
   		this.posts = response.data.children
   	})
+  }
+
+  viewPost(post){
+    console.log(post)
+
+    this.navCtrl.push(PostPage, {
+       post: post
+    })
   }
 }
