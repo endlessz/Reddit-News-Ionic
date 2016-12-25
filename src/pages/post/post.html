@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      {{ post.data.title }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-card>
+	  <img height="250" *ngIf="post.data.preview.images[0].source.url" src="{{ post.data.preview.images[0].source.url }}"/>
+	  <ion-card-content>
+	    <ion-card-title>{{ post.data.title }}</ion-card-title>
+	    <p>By: {{ post.data.author }}</p>
+	    <p>
+       	 <ion-icon name="thumbs-up">{{ post.data.score }}</ion-icon>
+       	 <ion-icon name="chatboxes" padding-left>{{ post.data.num_comments }}</ion-icon>
+      	</p>
+	  </ion-card-content>
+
+	  <ion-row no-padding>
+      <ion-col>
+        <a target="_blank" href="https://reddit.com{{post.data.permalink}}">
+	        <button ion-button clear small color="danger" icon-left>
+	          <ion-icon name='eye'></ion-icon>
+	          View Full Post
+	        </button>
+        </a>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='share-alt'></ion-icon>
+          Share
+        </button>
+      </ion-col>
+    </ion-row>
+	</ion-card>
+</ion-content>
