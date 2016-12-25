@@ -6,6 +6,17 @@
 
 <ion-content padding>
   <ion-list>
+    <ion-item>
+      <ion-label fixed>Category</ion-label>
+      <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category" center>
+        <ion-option value="gaming">Gaming</ion-option>
+        <ion-option value="Art">Art</ion-option>
+        <ion-option value="sports">Sports</ion-option>
+        <ion-option value="food">Food</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
     <ion-item *ngFor="let post of posts" (click)="viewPost(post)">
       <ion-thumbnail *ngIf="post.data.thumbnail" item-left>
         <img src="{{ post.data.thumbnail }}" />
