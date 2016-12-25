@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RedditService } from '../../app/services/reddit.service';
+import { SettingService } from '../../app/services/setting.service';
 import { NavController } from 'ionic-angular';
 import { PostPage } from '../post/post';
 
@@ -7,14 +8,15 @@ import { PostPage } from '../post/post';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
   posts: any
-  category: string
-  limit: number
+  category: any
+  limit: any
 
-  constructor(public navCtrl: NavController, private redditService: RedditService) {
-    this.category = 'gaming'
-    this.limit = 10
+  constructor(public navCtrl: NavController, private redditService: RedditService, private settingService: SettingService) {
+    this.category = this.settingService.getCategory()
+    this.limit = this.settingService.getLimit()
   }
 
   ngOnInit(){
