@@ -9,12 +9,16 @@ import { PostPage } from '../post/post';
 })
 export class HomePage {
   posts: any
+  category: string
+  limit: number
 
   constructor(public navCtrl: NavController, private redditService: RedditService) {
+    this.category = 'gaming'
+    this.limit = 10
   }
 
   ngOnInit(){
-  	this.getPosts('gaming', 10)
+  	this.getPosts(this.category, this.limit)
   }
 
   getPosts(category, limit){
@@ -29,5 +33,9 @@ export class HomePage {
     this.navCtrl.push(PostPage, {
        post: post
     })
+  }
+
+  changeCategory(){
+    this.getPosts(this.category, this.limit)
   }
 }
