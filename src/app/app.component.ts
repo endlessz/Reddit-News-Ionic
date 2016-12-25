@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { RedditService } from './services/reddit.service';
+import { SettingService } from './services/setting.service';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [RedditService]
+  providers: [RedditService, SettingService]
 })
 
 export class MyApp {
